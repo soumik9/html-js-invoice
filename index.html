@@ -5,59 +5,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/index.css">
 
     <title>Document</title>
 </head>
 
 <body class="bg-gray-100">
 
-    <div class="container mx-auto px-4 py-8">
+    <div class="container">
 
-        <!-- Shop Name and Address -->
-        <div class="mb-6">
-            <h1 class="text-3xl font-bold">Shop Name</h1>
-            <p>Shop Address Line 1</p>
-            <p>Shop Address Line 2</p>
-            <p>Contact: +1234567890</p>
+        <div class="grid grid-cols-2 gap-5 w-full mt-10">
+
+            <div class="flex flex-col">
+                <label for="date" class="inputLabel">Date</label>
+                <input type="date" class="inputStyle" id="date">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="customerName" class="inputLabel">Customer Name</label>
+                <input type="text" class="inputStyle" id="customerName" placeholder="Please enter customer name">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="customerMobile" class="inputLabel">Customer Mobile</label>
+                <input type="text" class="inputStyle" id="customerMobile" placeholder="Please enter customer mobile">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="attention" class="inputLabel">Attention</label>
+                <input type="text" class="inputStyle" id="attention" placeholder="Please enter attention">
+            </div>
+
+            <div class="flex flex-col col-span-2">
+                <label for="customerAddress" class="inputLabel">Customer Adress</label>
+                <input type="text" class="inputStyle" id="customerAddress" placeholder="Please enter customer address">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="salePerson" class="inputLabel">Sale Person</label>
+                <input type="text" class="inputStyle" id="salePerson" placeholder="Please enter sale person name">
+            </div>
+            <div class="flex flex-col">
+                <label for="creditLimit" class="inputLabel">Credit Limit</label>
+                <input type="text" class="inputStyle" id="creditLimit" placeholder="Please enter credit limit">
+            </div>
         </div>
 
-        <!-- Customer Details -->
-        <div class="mb-6">
-            <h2 class="text-2xl font-bold">Customer Details</h2>
-            <p>Customer Name: John Doe</p>
-            <p>Customer Address Line 1</p>
-            <p>Customer Address Line 2</p>
-            <p>Contact: +9876543210</p>
+
+
+
+        <hr class="my-5" />
+        <div class="mb-2 flex justify-end">
+            <h1 class="font-bold text-[22px]">
+                <i>W</i>akkia Metal Works
+            </h1>
         </div>
 
-        <!-- Invoice Items Table -->
+        <div class="flex justify-center">
+            <p
+                class="uppercase text-[18px] tracking-wide border border-gray-900 w-max px-24 py-1 rounded-lg font-semibold">
+                Invoice
+            </p>
+        </div>
+
+        <div class="mb-6">
+            <h2 class="text-[18px] font-bold mb-1">Customer Details</h2>
+
+            <div class="grid grid-cols-3">
+
+                <div class="space-y-1">
+                    <p>Name: <span id="customerNameDisplay"></span> </p>
+                    <p>Address: <span id="customerAddressDisplay"></span> </p>
+                    <p>&nbsp;</p>
+                    <p>Mobile: <span id="customerMobileDisplay"></span> </p>
+                    <p>Attention: <span id="attentionDisplay"></span> </p>
+                </div>
+
+                <div></div>
+
+                <div class="space-y-1">
+                    <p>Date: <span id="dateDisplay"></span> </p>
+                    <p>Sales Person: <span id="salePersonDisplay"></span> </p>
+                    <p>Credit Limit: <span id="creditLimitDisplay"></span> </p>
+                </div>
+            </div>
+
+        </div>
+
+
         <table class="w-full border-collapse border border-gray-500">
             <thead>
                 <tr class="bg-gray-200">
-                    <th class="px-4 py-2">Item</th>
-                    <th class="px-4 py-2">Quantity</th>
-                    <th class="px-4 py-2">Unit Price</th>
-                    <th class="px-4 py-2">Total</th>
+                    <th class="px-4 py-2 text-start">SL</th>
+                    <th class="px-4 py-2 text-start">Code</th>
+                    <th class="px-4 py-2 text-start" colspan="2">Description</th>
+                    <th class="px-4 py-2 text-start">QTY</th>
+                    <th class="px-4 py-2 text-start">Unit Price</th>
+                    <th class="px-4 py-2 text-start">Unit Price</th>
+                    <th class="px-4 py-2 text-start">Amount</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td class="px-4 py-2">1</td>
                     <td class="px-4 py-2">Item 1</td>
+                    <td class="px-4 py-2" colspan="2">desc</td>
                     <td class="px-4 py-2">2</td>
+                    <td class="px-4 py-2">2000</td>
                     <td class="px-4 py-2">$10.00</td>
                     <td class="px-4 py-2">$20.00</td>
                 </tr>
                 <tr>
-                    <td class="px-4 py-2">Item 2</td>
                     <td class="px-4 py-2">1</td>
-                    <td class="px-4 py-2">$15.00</td>
-                    <td class="px-4 py-2">$15.00</td>
+                    <td class="px-4 py-2">Item 1</td>
+                    <td class="px-4 py-2" colspan="2">desc</td>
+                    <td class="px-4 py-2">2</td>
+                    <td class="px-4 py-2">2000</td>
+                    <td class="px-4 py-2">$10.00</td>
+                    <td class="px-4 py-2">$20.00</td>
                 </tr>
-                <!-- Add more rows for additional items -->
             </tbody>
             <tfoot>
                 <tr class="bg-gray-200">
-                    <td colspan="3" class="text-right px-4 py-2 font-bold">Total:</td>
+                    <td colspan="7" class="text-right px-4 py-2 font-bold">Total:</td>
                     <td class="px-4 py-2 font-bold">$35.00</td>
                 </tr>
             </tfoot>
