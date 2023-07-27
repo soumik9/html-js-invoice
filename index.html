@@ -14,6 +14,7 @@
 
     <div class="container">
 
+        <!-- informations inputs starts -->
         <div class="grid grid-cols-2 gap-5 w-full mt-10">
 
             <div class="flex flex-col">
@@ -48,6 +49,32 @@
             <div class="flex flex-col">
                 <label for="creditLimit" class="inputLabel">Credit Limit</label>
                 <input type="text" class="inputStyle" id="creditLimit" placeholder="Please enter credit limit">
+            </div>
+        </div>
+        <!-- informations inputs ends -->
+
+
+        <div class="mt-5">
+            <p class="text-[18px] font-medium border-b ">Product</p>
+
+            <div class="grid grid-cols-5 gap-4 mt-3">
+                <div class="flex flex-col">
+                    <label for="productCode" class="inputLabel">Product Code</label>
+                    <input type="text" class="inputStyle" id="productCode" placeholder="Please enter product code">
+                </div>
+                <div class="flex flex-col">
+                    <label for="productName" class="inputLabel">Product Name</label>
+                    <input type="text" class="inputStyle" id="productName" placeholder="Please enter product name">
+                </div>
+                <div class="flex flex-col">
+                    <label for="qty" class="inputLabel">QTY</label>
+                    <input type="text" class="inputStyle" id="qty" placeholder="Please enter quantity">
+                </div>
+                <div class="flex flex-col">
+                    <label for="unitPrice" class="inputLabel">Unit Price</label>
+                    <input type="text" class="inputStyle" id="unitPrice" placeholder="Please enter unit price">
+                </div>
+                <button type="button" id="addButton" class="cursor-pointer">Add</button>
             </div>
         </div>
 
@@ -99,22 +126,13 @@
                     <th class="px-4 py-2 text-start">SL</th>
                     <th class="px-4 py-2 text-start">Code</th>
                     <th class="px-4 py-2 text-start" colspan="2">Description</th>
-                    <th class="px-4 py-2 text-start">QTY</th>
-                    <th class="px-4 py-2 text-start">Unit Price</th>
-                    <th class="px-4 py-2 text-start">Unit Price</th>
+                    <th class="px-4 py-2 text-center">QTY</th>
+                    <th class="px-4 py-2 text-center">Unit Price</th>
+                    <th class="px-4 py-2 text-center">Unit Price</th>
                     <th class="px-4 py-2 text-start">Amount</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td class="px-4 py-2">1</td>
-                    <td class="px-4 py-2">Item 1</td>
-                    <td class="px-4 py-2" colspan="2">desc</td>
-                    <td class="px-4 py-2">2</td>
-                    <td class="px-4 py-2">2000</td>
-                    <td class="px-4 py-2">$10.00</td>
-                    <td class="px-4 py-2">$20.00</td>
-                </tr>
+            <tbody id="tableBody">
                 <tr>
                     <td class="px-4 py-2">1</td>
                     <td class="px-4 py-2">Item 1</td>
@@ -142,6 +160,7 @@
 
     <!-- Connect the JavaScript file -->
     <script src="scripts/index.js"></script>
+    <script src="scripts/product.js"></script>
 </body>
 
 </html>
