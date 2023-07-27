@@ -4,11 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <title>Document</title>
 </head>
 
-<body>
+<body class="bg-gray-100">
 
+    <div class="container mx-auto px-4 py-8">
+
+        <!-- Shop Name and Address -->
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold">Shop Name</h1>
+            <p>Shop Address Line 1</p>
+            <p>Shop Address Line 2</p>
+            <p>Contact: +1234567890</p>
+        </div>
+
+        <!-- Customer Details -->
+        <div class="mb-6">
+            <h2 class="text-2xl font-bold">Customer Details</h2>
+            <p>Customer Name: John Doe</p>
+            <p>Customer Address Line 1</p>
+            <p>Customer Address Line 2</p>
+            <p>Contact: +9876543210</p>
+        </div>
+
+        <!-- Invoice Items Table -->
+        <table class="w-full border-collapse border border-gray-500">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="px-4 py-2">Item</th>
+                    <th class="px-4 py-2">Quantity</th>
+                    <th class="px-4 py-2">Unit Price</th>
+                    <th class="px-4 py-2">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2">Item 1</td>
+                    <td class="px-4 py-2">2</td>
+                    <td class="px-4 py-2">$10.00</td>
+                    <td class="px-4 py-2">$20.00</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2">Item 2</td>
+                    <td class="px-4 py-2">1</td>
+                    <td class="px-4 py-2">$15.00</td>
+                    <td class="px-4 py-2">$15.00</td>
+                </tr>
+                <!-- Add more rows for additional items -->
+            </tbody>
+            <tfoot>
+                <tr class="bg-gray-200">
+                    <td colspan="3" class="text-right px-4 py-2 font-bold">Total:</td>
+                    <td class="px-4 py-2 font-bold">$35.00</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <!-- Thank You Message -->
+        <div class="mt-6">
+            <p class="font-bold">Thank you for your purchase!</p>
+        </div>
+
+    </div>
+
+    <!-- Connect the JavaScript file -->
+    <script src="scripts/index.js"></script>
 </body>
 
 </html>
