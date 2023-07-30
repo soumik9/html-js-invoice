@@ -13,10 +13,101 @@
     border: 1px solid #34495e;
 }
 
+/* Hide the input type number arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Table styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #808080;
+}
+
+.table th {
+    font-size: 14px;
+    padding: 4px;
+    padding-left: 8px;
+    border: 1px solid #808080;
+}
+
+.table td {
+    border: 1px solid #808080;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+
+/* serial column */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+    width: 10px;
+}
+
+/* code colum */
+.table th:nth-child(2),
+.table td:nth-child(2) {
+    max-width: 50px;
+    word-wrap: break-word;
+}
+
+/* description colum */
+.table th:nth-child(3),
+.table td:nth-child(3) {
+    max-width: 80px;
+    word-wrap: break-word;
+}
+
+/* quantity colum */
+.table th:nth-child(4),
+.table td:nth-child(4) {
+    width: 40px;
+    word-wrap: break-word;
+}
+
+/* unit price column */
+.table th:nth-child(5),
+.table td:nth-child(5) {
+    max-width: 90px;
+    word-wrap: break-word;
+}
+
+/* discount column */
+.table th:nth-child(6),
+.table td:nth-child(6) {
+    width: 40px;
+    word-wrap: break-word;
+}
+
+/* unit price after discount column */
+.table th:nth-child(7),
+.table td:nth-child(7) {
+    max-width: 90px;
+    word-wrap: break-word;
+}
+
+/* total column */
+.table th:nth-child(8),
+.table td:nth-child(8) {
+    max-width: 90px;
+    word-wrap: break-word;
+}
+
 /* Equivalent CSS for .container */
 .container {
-    padding-left: 20px;
-    padding-right: 20px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
@@ -38,7 +129,7 @@
     }
 
     @media (min-width: 1920px) {
-        padding-left: 375px;
-        padding-right: 375px;
+        padding-left: 300px;
+        padding-right: 300px;
     }
 }

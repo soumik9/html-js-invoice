@@ -3,12 +3,13 @@
 let products = [];
 
 // Function to handle the "Add" button click
-function handleAddButtonClick() {
+const handleAddButtonClick = () => {
     // Get input values
     const productCode = document.getElementById('productCode').value;
     const productName = document.getElementById('productName').value;
     const qty = document.getElementById('qty').value;
     const unitPrice = document.getElementById('unitPrice').value;
+    const discount = document.getElementById('discount').value;
 
     console.log(productCode);
 
@@ -18,7 +19,9 @@ function handleAddButtonClick() {
         name: productName,
         quantity: qty,
         unitPrice: unitPrice,
-        totalPrice: qty * unitPrice,
+        discount: discount,
+        unitPriceAfterDiscount: (unitPrice - (unitPrice * (discount / 100))).toFixed(2),
+        totalPrice: (qty * (unitPrice - (unitPrice * (discount / 100)))).toFixed(2),
     });
 
     // Clear input fields
@@ -32,28 +35,35 @@ function handleAddButtonClick() {
 }
 
 // Function to update the table with products values
-function updateTable() {
+const updateTable = () => {
     const tableBody = document.getElementById('tableBody');
+    const totalElement = document.getElementById('total');
 
     // Clear existing rows
     tableBody.innerHTML = '';
 
-    console.log(products);
+    // Reset the total price
+    let total = 0;
 
     // Loop through the products and append rows to the table
     products.forEach((data, index) => {
+        total += data.totalPrice;
         const row = document.createElement('tr');
         row.innerHTML = `
-        <td class="px-4 py-2">${index + 1}</td>
+        <td class="px-4 py-2 text-center">${index + 1}</td>
         <td class="px-4 py-2">${data.code}</td>
         <td class="px-4 py-2" colspan="2">${data.name}</td>
         <td class="px-4 py-2 text-center">${data.quantity}</td>
         <td class="px-4 py-2 text-center">${data.unitPrice}</td>
-        <td class="px-4 py-2 text-center">${data.unitPrice}</td>
-        <td class="px-4 py-2">$${data.totalPrice}</td>
+        <td class="px-4 py-2 text-center">${data.discount}%</td>
+        <td class="px-4 py-2 text-center">${data.unitPriceAfterDiscount}</td>
+        <td class="px-4 py-2">${data.totalPrice} BDT</td>
       `;
         tableBody.appendChild(row);
     });
+
+    // Update the total price
+    totalElement.textContent = `${total.toFixed(2)} BDT`;
 }
 
 // Add click event listener to the "Add" button

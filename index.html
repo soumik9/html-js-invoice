@@ -57,22 +57,26 @@
         <div class="mt-5">
             <p class="text-[18px] font-medium border-b ">Product</p>
 
-            <div class="grid grid-cols-5 gap-4 mt-3">
+            <div class="grid grid-cols-3 items-center gap-4 mt-3">
                 <div class="flex flex-col">
                     <label for="productCode" class="inputLabel">Product Code</label>
-                    <input type="text" class="inputStyle" id="productCode" placeholder="Please enter product code">
+                    <input type="text" class="inputStyle" id="productCode" placeholder="Product code">
                 </div>
                 <div class="flex flex-col">
                     <label for="productName" class="inputLabel">Product Name</label>
-                    <input type="text" class="inputStyle" id="productName" placeholder="Please enter product name">
+                    <input type="text" class="inputStyle" id="productName" placeholder="Product name">
                 </div>
                 <div class="flex flex-col">
                     <label for="qty" class="inputLabel">QTY</label>
-                    <input type="text" class="inputStyle" id="qty" placeholder="Please enter quantity">
+                    <input type="number" class="inputStyle" id="qty" placeholder="Quantity">
                 </div>
                 <div class="flex flex-col">
                     <label for="unitPrice" class="inputLabel">Unit Price</label>
-                    <input type="text" class="inputStyle" id="unitPrice" placeholder="Please enter unit price">
+                    <input type="number" class="inputStyle" id="unitPrice" placeholder="Unit price">
+                </div>
+                <div class="flex flex-col">
+                    <label for="discount" class="inputLabel">Discount</label>
+                    <input type="number" class="inputStyle" id="discount" placeholder="Discount">
                 </div>
                 <button type="button" id="addButton" class="cursor-pointer">Add</button>
             </div>
@@ -119,37 +123,30 @@
 
         </div>
 
-
-        <table class="w-full border-collapse border border-gray-500">
+        <table class="table">
             <thead>
                 <tr class="bg-gray-200">
-                    <th class="px-4 py-2 text-start">SL</th>
-                    <th class="px-4 py-2 text-start">Code</th>
-                    <th class="px-4 py-2 text-start" colspan="2">Description</th>
-                    <th class="px-4 py-2 text-center">QTY</th>
-                    <th class="px-4 py-2 text-center">Unit Price</th>
-                    <th class="px-4 py-2 text-center">Unit Price</th>
-                    <th class="px-4 py-2 text-start">Amount</th>
+                    <th class="text-center">SL</th>
+                    <th class="text-start">Code</th>
+                    <th class="text-start" colspan="2">Description</th>
+                    <th class="text-center">QTY</th>
+                    <th class="text-center">Unit Price</th>
+                    <th class="text-center">Discount</th>
+                    <th class="text-center">Unit Price After Dis</th>
+                    <th class="text-start">Amount</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
-                <tr>
-                    <td class="px-4 py-2">1</td>
-                    <td class="px-4 py-2">Item 1</td>
-                    <td class="px-4 py-2" colspan="2">desc</td>
-                    <td class="px-4 py-2">2</td>
-                    <td class="px-4 py-2">2000</td>
-                    <td class="px-4 py-2">$10.00</td>
-                    <td class="px-4 py-2">$20.00</td>
-                </tr>
+                <!-- Table rows will be dynamically added here -->
             </tbody>
             <tfoot>
                 <tr class="bg-gray-200">
-                    <td colspan="7" class="text-right px-4 py-2 font-bold">Total:</td>
-                    <td class="px-4 py-2 font-bold">$35.00</td>
+                    <td colspan="8" class="text-right font-bold">Total:</td>
+                    <td class="font-bold" colspan="2" id="total">00.00 BDT</td>
                 </tr>
             </tfoot>
         </table>
+
 
         <!-- Thank You Message -->
         <div class="mt-6">
