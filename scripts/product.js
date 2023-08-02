@@ -11,27 +11,34 @@ const handleAddButtonClick = () => {
     const unitPrice = document.getElementById('unitPrice').value;
     const discount = document.getElementById('discount').value;
 
-    console.log(productCode);
+    // Check if any of the input fields are empty
+    if (!productCode || !productName || !qty || !unitPrice || !discount) {
+        alert('Please fill in all the fields before adding the product.');
+        return;
+    } else {
+        // Add the data to the products
+        products.push({
+            code: productCode,
+            name: productName,
+            quantity: qty,
+            unitPrice: unitPrice,
+            discount: discount,
+            unitPriceAfterDiscount: (unitPrice - (unitPrice * (discount / 100))).toFixed(2),
+            totalPrice: (qty * (unitPrice - (unitPrice * (discount / 100)))).toFixed(2),
+        });
 
-    // Add the data to the products
-    products.push({
-        code: productCode,
-        name: productName,
-        quantity: qty,
-        unitPrice: unitPrice,
-        discount: discount,
-        unitPriceAfterDiscount: (unitPrice - (unitPrice * (discount / 100))).toFixed(2),
-        totalPrice: (qty * (unitPrice - (unitPrice * (discount / 100)))).toFixed(2),
-    });
+        // Clear input fields
+        document.getElementById('productCode').value = '';
+        document.getElementById('productName').value = '';
+        document.getElementById('qty').value = '';
+        document.getElementById('unitPrice').value = '';
+        document.getElementById('discount').value = '';
 
-    // Clear input fields
-    // document.getElementById('productCode').value = '';
-    // document.getElementById('productName').value = '';
-    // document.getElementById('qty').value = '';
-    // document.getElementById('unitPrice').value = '';
+        // Call function to update the table
+        updateTable();
+    }
 
-    // Call function to update the table
-    updateTable();
+
 }
 
 // Function to update the table with products values
@@ -47,16 +54,16 @@ const updateTable = () => {
 
     // Loop through the products and append rows to the table
     products.forEach((data, index) => {
-        total += data.totalPrice;
+        total += Number(data.totalPrice);
         const row = document.createElement('tr');
         row.innerHTML = `
         <td class="px-4 py-2 text-center">${index + 1}</td>
         <td class="px-4 py-2">${data.code}</td>
         <td class="px-4 py-2" colspan="2">${data.name}</td>
         <td class="px-4 py-2 text-center">${data.quantity}</td>
-        <td class="px-4 py-2 text-center">${data.unitPrice}</td>
+        <td class="px-4 py-2 text-center">${data.unitPrice} BDT</td>
         <td class="px-4 py-2 text-center">${data.discount}%</td>
-        <td class="px-4 py-2 text-center">${data.unitPriceAfterDiscount}</td>
+        <td class="px-4 py-2 text-center">${data.unitPriceAfterDiscount} BDT</td>
         <td class="px-4 py-2">${data.totalPrice} BDT</td>
       `;
         tableBody.appendChild(row);

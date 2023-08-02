@@ -30,7 +30,7 @@ const inputFields = {
 
 };
 
-function updateDisplay(inputField) {
+const updateDisplay = (inputField) => {
     inputField.display.textContent = inputField.input.value;
 }
 
@@ -39,4 +39,3 @@ for (const fieldKey in inputFields) {
     const field = inputFields[fieldKey];
     field.input.addEventListener("input", () => updateDisplay(field));
 }
-

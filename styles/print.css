@@ -1,0 +1,14 @@
+@media print {
+
+    /* Hide the external header and footer by setting display to none */
+    header,
+    footer {
+        display: none;
+    }
+
+    @page {
+        margin: 0;
+        size: A4;
+        margin: 12px;
+    }
+}

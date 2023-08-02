@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/input.css">
+    <link rel="stylesheet" href="styles/print.css">
 
     <title>Document</title>
 </head>
@@ -15,7 +18,7 @@
     <div class="container">
 
         <!-- informations inputs starts -->
-        <div class="grid grid-cols-2 gap-5 w-full mt-10">
+        <div class="grid grid-cols-2 gap-5 mt-10">
 
             <div class="flex flex-col">
                 <label for="date" class="inputLabel">Date</label>
@@ -46,6 +49,7 @@
                 <label for="salePerson" class="inputLabel">Sale Person</label>
                 <input type="text" class="inputStyle" id="salePerson" placeholder="Please enter sale person name">
             </div>
+
             <div class="flex flex-col">
                 <label for="creditLimit" class="inputLabel">Credit Limit</label>
                 <input type="text" class="inputStyle" id="creditLimit" placeholder="Please enter credit limit">
@@ -54,10 +58,10 @@
         <!-- informations inputs ends -->
 
 
-        <div class="mt-5">
-            <p class="text-[18px] font-medium border-b ">Product</p>
+        <div class="mt-6">
+            <p class="text-22px font-semibold border-b-2 ">Product</p>
 
-            <div class="grid grid-cols-3 items-center gap-4 mt-3">
+            <div class="grid grid-cols-3 items-end gap-4 mt-3">
                 <div class="flex flex-col">
                     <label for="productCode" class="inputLabel">Product Code</label>
                     <input type="text" class="inputStyle" id="productCode" placeholder="Product code">
@@ -78,79 +82,108 @@
                     <label for="discount" class="inputLabel">Discount</label>
                     <input type="number" class="inputStyle" id="discount" placeholder="Discount">
                 </div>
-                <button type="button" id="addButton" class="cursor-pointer">Add</button>
+                <button type="button" id="addButton" class="btn" style="position: relative; top: -2px;">Add
+                    Item</button>
             </div>
         </div>
 
 
 
 
-        <hr class="my-5" />
-        <div class="mb-2 flex justify-end">
-            <h1 class="font-bold text-[22px]">
-                <i>W</i>akkia Metal Works
-            </h1>
-        </div>
+        <div class="border-b-2 my-8 border-red-500"></div>
 
-        <div class="flex justify-center">
-            <p
-                class="uppercase text-[18px] tracking-wide border border-gray-900 w-max px-24 py-1 rounded-lg font-semibold">
-                Invoice
-            </p>
-        </div>
+        <button onclick="printContent()" class="btn mb-6" type="button">Print</button>
 
-        <div class="mb-6">
-            <h2 class="text-[18px] font-bold mb-1">Customer Details</h2>
+        <div class="" id="printDiv">
 
-            <div class="grid grid-cols-3">
 
-                <div class="space-y-1">
-                    <p>Name: <span id="customerNameDisplay"></span> </p>
-                    <p>Address: <span id="customerAddressDisplay"></span> </p>
-                    <p>&nbsp;</p>
-                    <p>Mobile: <span id="customerMobileDisplay"></span> </p>
-                    <p>Attention: <span id="attentionDisplay"></span> </p>
-                </div>
-
-                <div></div>
-
-                <div class="space-y-1">
-                    <p>Date: <span id="dateDisplay"></span> </p>
-                    <p>Sales Person: <span id="salePersonDisplay"></span> </p>
-                    <p>Credit Limit: <span id="creditLimitDisplay"></span> </p>
-                </div>
+            <div class="flex justify-end">
+                <h1 class="font-bold text-32px my-0">
+                    <i class="text-32px">W</i>akkia Metal Works
+                </h1>
             </div>
 
-        </div>
+            <div class="flex justify-center mt-1">
+                <p class="uppercase text-18px tracking-wide border border-gray-900 w-max rounded-lg font-semibold my-0"
+                    style="padding: 0.25rem 5rem;">
+                    Invoice
+                </p>
+            </div>
 
-        <table class="table">
-            <thead>
-                <tr class="bg-gray-200">
-                    <th class="text-center">SL</th>
-                    <th class="text-start">Code</th>
-                    <th class="text-start" colspan="2">Description</th>
-                    <th class="text-center">QTY</th>
-                    <th class="text-center">Unit Price</th>
-                    <th class="text-center">Discount</th>
-                    <th class="text-center">Unit Price After Dis</th>
-                    <th class="text-start">Amount</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-                <!-- Table rows will be dynamically added here -->
-            </tbody>
-            <tfoot>
-                <tr class="bg-gray-200">
-                    <td colspan="8" class="text-right font-bold">Total:</td>
-                    <td class="font-bold" colspan="2" id="total">00.00 BDT</td>
-                </tr>
-            </tfoot>
-        </table>
+            <div class="mb-6 inoSaleContainer">
+                <h2 class="text-18px font-bold mb-1 border-b" style='width: 50%;'>Customer Details</h2>
+
+                <div class="flex gap-5" style="width: 100%;">
+                    <div class="space-y-1" style="width: 50%;">
+                        <div class="flex gap-x-1 mb-2 mt-3">
+                            <p style="width: 20%" class="my-0 text-right text-base">Name: </p>
+                            <p class=" font-bold break-word my-0 text-base" id="customerNameDisplay"></p>
+                        </div>
+                        <div class="flex gap-x-1 mb-2 ">
+                            <p style="width: 20%" class="my-0 text-right text-base">Address: </p>
+                            <p class=" font-bold break-word my-0 inline-block text-base" style="width: 80%;"
+                                id="customerAddressDisplay"></p>
+                        </div>
+                        <!-- <p>&nbsp;</p> -->
+                        <div class="flex gap-x-1 mb-2">
+                            <p style="width: 20%" class="my-0 text-right text-base">Mobile: </p>
+                            <p class=" font-bold break-word my-0 text-base" id="customerMobile"></p>
+                        </div>
+                        <div class="flex gap-x-1">
+                            <p style="width: 20%" class="my-0 text-right text-base">Attention: </p>
+                            <p class=" font-bold break-word my-0 text-base" id="attentionDisplay"></p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1" style="width: 50%;">
+                        <div class="flex gap-x-1 mb-2 mt-3">
+                            <p style="width: 30%" class="my-0 text-right text-base">Date: </p>
+                            <p class=" font-bold break-word my-0 text-base" id="dateDisplay"></p>
+                        </div>
+                        <div class="flex gap-x-1 mb-2">
+                            <p style="width: 30%" class="my-0 text-right text-base">Sales Person: </p>
+                            <p class=" font-bold break-word my-0 text-base" id="salePersonDisplay"></p>
+                        </div>
+                        <div class="flex gap-x-1">
+                            <p style="width: 30%" class="my-0 text-right text-base">Credit Limit: </p>
+                            <p class=" font-bold break-word my-0 text-base" id="creditLimitDisplay"></p>
+                        </div>
+                    </div>
+                </div>
 
 
-        <!-- Thank You Message -->
-        <div class="mt-6">
-            <p class="font-bold">Thank you for your purchase!</p>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="text-center">SL</th>
+                        <th class="text-start">Code</th>
+                        <th class="text-start" colspan="2">Description</th>
+                        <th class="text-center">QTY</th>
+                        <th class="text-center">Unit Price</th>
+                        <th class="text-center">Discount</th>
+                        <th class="text-center">Unit Price After Dis</th>
+                        <th class="text-start">Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Table rows will be dynamically added here -->
+                </tbody>
+                <tfoot>
+                    <tr class="bg-gray-200">
+                        <td colspan="8" class="text-right font-bold">Total:</td>
+                        <td class="font-bold" colspan="2" id="total">00.00 BDT</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+            <!-- Thank You Message -->
+            <div class="mt-1">
+                <p class="font-bold text-center text-xs">Thank you for your purchase! @TEAM Kala Tabij</p>
+            </div>
+
         </div>
 
     </div>
@@ -158,6 +191,23 @@
     <!-- Connect the JavaScript file -->
     <script src="scripts/index.js"></script>
     <script src="scripts/product.js"></script>
+
+    <!-- print the invoice -->
+    <script>
+        const printContent = () => {
+            const printDiv = document.getElementById("printDiv");
+            const originalContents = document.body.innerHTML;
+
+            // Temporarily replace the body's content with the content of printDiv
+            document.body.innerHTML = printDiv.innerHTML;
+
+            // Open the print dialog
+            window.print();
+
+            // Restore the original body content after printing is done
+            document.body.innerHTML = originalContents;
+        };
+    </script>
 </body>
 
 </html>
