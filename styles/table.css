@@ -22,7 +22,6 @@
     background-color: #f2f2f2;
 }
 
-
 /* serial column */
 .table th:nth-child(1),
 .table td:nth-child(1) {
@@ -39,7 +38,7 @@
 /* description colum */
 .table th:nth-child(3),
 .table td:nth-child(3) {
-    max-width: 80px;
+    max-width: 100px;
     word-wrap: break-word;
 }
 
@@ -53,7 +52,7 @@
 /* unit price column */
 .table th:nth-child(5),
 .table td:nth-child(5) {
-    max-width: 90px;
+    width: 90px;
     word-wrap: break-word;
 }
 
@@ -67,13 +66,13 @@
 /* unit price after discount column */
 .table th:nth-child(7),
 .table td:nth-child(7) {
-    max-width: 90px;
+    width: 110px;
     word-wrap: break-word;
 }
 
 /* total column */
 .table th:nth-child(8),
 .table td:nth-child(8) {
-    max-width: 90px;
+    width: 130px;
     word-wrap: break-word;
 }

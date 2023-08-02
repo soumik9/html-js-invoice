@@ -64,7 +64,7 @@ const updateTable = () => {
         <td class="px-4 py-2 text-center">${data.unitPrice} BDT</td>
         <td class="px-4 py-2 text-center">${data.discount}%</td>
         <td class="px-4 py-2 text-center">${data.unitPriceAfterDiscount} BDT</td>
-        <td class="px-4 py-2">${data.totalPrice} BDT</td>
+        <td class="px-4 py-2 text-center">${data.totalPrice} BDT</td>
       `;
         tableBody.appendChild(row);
     });
