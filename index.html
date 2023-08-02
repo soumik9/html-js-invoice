@@ -194,18 +194,43 @@
 
     <!-- print the invoice -->
     <script>
+
+        const validateInputs = () => {
+            const dateInput = document.getElementById('date');
+            const customerNameInput = document.getElementById('customerName');
+            const customerMobileInput = document.getElementById('customerMobile');
+            const customerAddressInput = document.getElementById('customerAddress');
+            const salePersonInput = document.getElementById('salePerson');
+            const creditLimitInput = document.getElementById('creditLimit');
+
+            if (!dateInput.value || !customerNameInput.value || !customerMobileInput.value ||
+                !customerAddressInput.value || !salePersonInput.value || !creditLimitInput.value) {
+                alert('Please fill in all the required fields before printing.');
+                return false;
+            }
+
+            if (products.length === 0) {
+                alert('Please add products to the invoice before printing.');
+                return false;
+            }
+
+            return true;
+        };
+
         const printContent = () => {
-            const printDiv = document.getElementById("printDiv");
-            const originalContents = document.body.innerHTML;
+            if (validateInputs()) {
+                const printDiv = document.getElementById("printDiv");
+                const originalContents = document.body.innerHTML;
 
-            // Temporarily replace the body's content with the content of printDiv
-            document.body.innerHTML = printDiv.innerHTML;
+                // Temporarily replace the body's content with the content of printDiv
+                document.body.innerHTML = printDiv.innerHTML;
 
-            // Open the print dialog
-            window.print();
+                // Open the print dialog
+                window.print();
 
-            // Restore the original body content after printing is done
-            document.body.innerHTML = originalContents;
+                // Restore the original body content after printing is done
+                document.body.innerHTML = originalContents;
+            }
         };
     </script>
 </body>
