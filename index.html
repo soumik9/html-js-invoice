@@ -87,16 +87,13 @@
             </div>
         </div>
 
-
-
-
+        <!-- red border -->
         <div class="border-b-2 my-8 border-red-500"></div>
 
+        <!-- printing button -->
         <button onclick="printContent()" class="btn mb-6" type="button">Print</button>
 
         <div class="" id="printDiv">
-
-
             <div class="flex justify-end">
                 <h1 class="font-bold text-32px my-0">
                     <i class="text-32px">W</i>akkia Metal Works
@@ -173,7 +170,7 @@
                 <tfoot>
                     <tr class="bg-gray-200">
                         <td colspan="8" class="text-right font-bold">Total:</td>
-                        <td class="font-bold text-center" colspan="2" id="total ">00.00 BDT</td>
+                        <td class="font-bold text-center" colspan="2" id="total">00.00 BDT</td>
                     </tr>
                 </tfoot>
             </table>
@@ -217,6 +214,7 @@
             return true;
         };
 
+
         const printContent = () => {
             if (validateInputs()) {
                 const printDiv = document.getElementById("printDiv");
@@ -231,7 +229,10 @@
                 // Restore the original body content after printing is done
                 document.body.innerHTML = originalContents;
             }
-        };
+        }
+
+
+
     </script>
 </body>
 

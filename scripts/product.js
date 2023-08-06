@@ -37,8 +37,6 @@ const handleAddButtonClick = () => {
         // Call function to update the table
         updateTable();
     }
-
-
 }
 
 // Function to update the table with products values
@@ -54,7 +52,7 @@ const updateTable = () => {
 
     // Loop through the products and append rows to the table
     products.forEach((data, index) => {
-        total += Number(data.totalPrice);
+        total = total + Number(data.totalPrice);
         const row = document.createElement('tr');
         row.innerHTML = `
         <td class="px-4 py-2 text-center">${index + 1}</td>
@@ -68,6 +66,8 @@ const updateTable = () => {
       `;
         tableBody.appendChild(row);
     });
+
+    console.log(total);
 
     // Update the total price
     totalElement.textContent = `${total.toFixed(2)} BDT`;
