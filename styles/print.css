@@ -1,4 +1,16 @@
+#printable {
+    display: none;
+}
+
 @media print {
+
+    #non-printable {
+        display: none;
+    }
+
+    #printable {
+        display: block;
+    }
 
     /* Hide the external header and footer by setting display to none */
     header,

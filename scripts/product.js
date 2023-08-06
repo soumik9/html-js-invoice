@@ -67,8 +67,6 @@ const updateTable = () => {
         tableBody.appendChild(row);
     });
 
-    console.log(total);
-
     // Update the total price
     totalElement.textContent = `${total.toFixed(2)} BDT`;
 }
